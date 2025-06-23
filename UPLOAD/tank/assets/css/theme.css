@@ -69,6 +69,14 @@
 */ 
 
 
+/* ------------------------------------------------------------- *
+ * Customized
+/* ------------------------------------------------------------- */
+@media (max-width: 767px) {
+	.hero-section-title{
+		width: 100% !important;
+	}
+}
 
 /* ------------------------------------------------------------- *
  * General
@@ -2061,10 +2069,22 @@ body:not(.tt-boxed) .page-header-inner,
 }}
 @media (max-width: 1024px) {
 	.mobile-img-class{
-		display: block;
-		
+		display: none;
 	}
+	.hero-section-title{
+		background-image: url(../img/DHackers2.jpeg);
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		height: 250px !important;
+	}
+	.hero-section-title-text{
+		background-color: #00000069 !important ;
+		height: 100% !important;
+	}
+	
 }
+
 /* if class "ph-image-cropped" enabled (not for background image!) */
 #page-header:not(.ph-bg-image).ph-image-cropped .ph-image-inner {
 	position: relative;
@@ -2291,7 +2311,7 @@ a.ph-category:hover {
 	top: 24px;
 	right: 0;
 	width: 1px;
-	height: 60px;
+	height: 30px;
 	margin-top: -18px;
 	background-color: rgb(255 255 255 / 40%);
 }
@@ -10003,5 +10023,76 @@ body:not(.tt-boxed) .tt-footer-inner,
 	}
 	#tt-footer .footer-social .footer-social-text {
 		display: none;
+	}
+}
+
+/* Video Sound Control Styling */
+.tt-video-container {
+	position: relative;
+}
+
+.video-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.sound-controls {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+	z-index: 10;
+}
+
+.sound-control-btn {
+	background: rgba(0, 0, 0, 0.7);
+	border: 2px solid #bbb496;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	color: #bbb496;
+	font-size: 18px;
+}
+
+.sound-control-btn:hover {
+	background: rgba(187, 180, 150, 0.2);
+	border-color: #fff;
+	color: #fff;
+	transform: scale(1.1);
+}
+
+.sound-control-btn:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(187, 180, 150, 0.3);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+	.sound-controls {
+		bottom: 15px;
+		right: 15px;
+	}
+	
+	.sound-control-btn {
+		width: 50px;
+		height: 50px;
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 480px) {
+	.sound-controls {
+		bottom: 10px;
+		right: 10px;
+	}
+	
+	.sound-control-btn {
+		width: 45px;
+		height: 45px;
+		font-size: 14px;
 	}
 }
