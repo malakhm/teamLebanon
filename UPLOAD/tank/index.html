@@ -489,7 +489,7 @@
 							-->
 							<div class="ph-caption hero-section-title" style="background-color: #00000069;height: 100%; width:50%">
 								 <h1 class="ph-caption-title hero-section-title-text ph-appear font-normal  text-danger" ><em>An Arabian Dance Community <br>From Beirut</em> <em>to the World</em></h1> 
-								 <!-- <div class="ph-caption-title-ghost ph-appear">Dance is not about movement, it’s about identity</div>  -->
+								 <!-- <div class="ph-caption-title-ghost ph-appear">Dance is not about movement, it's about identity</div>  -->
 								 
 							</div> 
 							<!-- End page header caption -->
@@ -627,7 +627,7 @@
 													* Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"!).
 													-->
 													<div class="portfolio-grid-item anim-parallax">
-														<a href="shootings.html" class="pgi-image-wrap" data-cursor="View<br>Project">
+														<a href="shootings.html" target="_blank" class="pgi-image-wrap" data-cursor="View<br>Project">
 															<!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". -->
 															<div class="pgi-image-holder cover-opacity-2">
 																<div class="pgi-image-inner anim-zoomin">
@@ -876,7 +876,7 @@
 											<div class="bli-desc"> <!-- 3 lines is optimal! -->
 												An Arabian dance community that celebrates hip-hop culture through battles and events.
 												Our platform brings together all the core elements of hip-hop — breaking, MCing, DJing, and graffiti — in a space where dancers and artists can express themselves, connect, and grow.
-												It’s where Arab roots and hip-hop energy come together.
+												It's where Arab roots and hip-hop energy come together.
 											</div>
 											
 										</div>
@@ -961,8 +961,8 @@
 								Use class "scr-text-stroke" to enable text stroke style (no effect on smaller screens!). 
 								-->
 								<div class="tt-scrolling-text scr-text-stroke font-italic" data-scroll-speed="15">
-									<div class="tt-scrolling-text-inner text-dark-3" data-text="Dance is not about movement, it’s about identity">
-										Dance is not about movement, it’s about identity
+									<div class="tt-scrolling-text-inner text-dark-3" data-text="Dance is not about movement, it's about identity">
+										Dance is not about movement, it's about identity
 									</div> <!-- /.tt-scrolling-text-inner -->
 								</div>
 								<!-- End scrolling text -->
@@ -974,8 +974,8 @@
 								Use class "scr-text-stroke" to enable text stroke style (no effect on smaller screens!). 
 								-->
 								<div class="tt-scrolling-text scr-text-stroke scr-text-reverse font-italic" data-scroll-speed="15">
-									<div class="tt-scrolling-text-inner text-dark-3" data-text="Dance is not about movement, it’s about identity">
-										Dance is not about movement, it’s about identity
+									<div class="tt-scrolling-text-inner text-dark-3" data-text="Dance is not about movement, it's about identity">
+										Dance is not about movement, it's about identity
 									</div> <!-- /.tt-scrolling-text-inner -->
 								</div>
 								<!-- End scrolling text -->
@@ -1054,7 +1054,7 @@
 											<div class="swiper-slide font-alter">
 												<div class="tt-ts-item">
 													<div class="tt-ts-text">
-														"They don’t just perform—they tell a story through movement. Their unique fusion of dance and circus arts added something magical to our festival."
+														"They don't just perform—they tell a story through movement. Their unique fusion of dance and circus arts added something magical to our festival."
 													</div>
 													<div class="tt-ts-subtext">— Ziad K., Festival Coordinator</div>
 												</div>
@@ -1136,7 +1136,6 @@
 						-->
 						<div class="tt-section padding-top-xlg-150 padding-bottom-xlg-150 padding-left-sm-3-p padding-right-sm-3-p bg-white-accent-3">
 							<div class="tt-section-inner tt-wrap max-width-900">
-
 								<!-- Begin tt-Heading 
 								====================== 
 								* Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg" or "tt-heading-xxlg" to set caption size (no class = default size).
@@ -1155,37 +1154,32 @@
 									* Use class "tt-form-filled" or "tt-form-minimal" to change form style.
 									* Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
 									-->
-									<form id="tt-contact-form" class="tt-form-minimal anim-fadeinup" action="https://formsubmit.co/ramhack777@gmail.com" method="POST">
-  
-										<!-- ✅ Useful FormSubmit Hidden Fields -->
-										<input type="hidden" name="_subject" value="New Message from Team Lebanon Contact Form">
-										<input type="hidden" name="_captcha" value="false">
-										<input type="hidden" name="_next" value="https://team-lebanon.vercel.app/thank-you.html">
+									<form id="tt-contact-form" class="tt-form-minimal anim-fadeinup">
 									  
 										<div class="tt-row">
 										  <div class="tt-col-md-6">
 											<div class="tt-form-group">
 											  <label>Name <span class="required">*</span></label>
-											  <input class="tt-form-control" type="text" name="Name" required>
+											  <input class="tt-form-control" type="text" name="name" id="name" required>
 											</div>
 										  </div>
 									  
 										  <div class="tt-col-md-6">
 											<div class="tt-form-group">
 											  <label>Email address <span class="required">*</span></label>
-											  <input class="tt-form-control" type="email" name="Email" required>
+											  <input class="tt-form-control" type="email" name="email" id="email" required>
 											</div>
 										  </div>
 										</div>
 									  
 										<div class="tt-form-group">
 										  <label>Subject <span class="required">*</span></label>
-										  <input class="tt-form-control" type="text" name="Subject" required>
+										  <input class="tt-form-control" type="text" name="subject" id="subject" required>
 										</div>
 									  
 										<div class="tt-form-group">
 										  <label>Select an option <span class="required">*</span></label>
-										  <select class="tt-form-control" name="Option" required>
+										  <select class="tt-form-control" name="option" id="option" required>
 											<option value="" disabled selected>Please choose an option</option>
 											<option value="Say Hello">Say hello</option>
 											<option value="New Project">New project</option>
@@ -1196,15 +1190,28 @@
 									  
 										<div class="tt-form-group">
 										  <label>Message <span class="required">*</span></label>
-										  <textarea class="tt-form-control" rows="6" name="Message" required></textarea>
+										  <textarea class="tt-form-control" rows="6" name="message" id="message" required></textarea>
 										</div>
 									  
 										<small class="tt-form-text"><em>Fields marked with an asterisk (*) are required!</em></small>
 									  
 										<div class="tt-btn tt-btn-light-outline margin-top-40">
-										  <button type="submit" data-hover="Send Message">Send Message</button>
+										  <button type="submit" id="submit-btn" data-hover="Send Message">
+											<span class="btn-text">Send Message</span>
+											<span class="btn-loading" style="display:none;">Sending...</span>
+										  </button>
 										</div>
 									  </form>
+									  
+									  <!-- Form status messages -->
+									  <div id="form-status" style="margin-top: 20px; display: none;">
+										<div id="success-message" class="text-success" style="display: none;">
+										  ✅ Thank you! Your message has been sent successfully.
+										</div>
+										<div id="error-message" class="text-danger" style="display: none;">
+										  ❌ Sorry, there was an error sending your message. Please try again.
+										</div>
+									  </div>
 									<!-- End form -->
 
 							</div> <!-- /.tt-section-inner -->
@@ -1242,7 +1249,7 @@
 								<div class="footer-col-inner">
 
 									<div class="tt-copyright">
-										© Copyright - <a href="https://themetorium.net" target="_blank" rel="noopener" class="tt-link">Themetorium.net</a>
+										© Copyright - <a href="https://malakhamwi.tech/" target="_blank" rel="noopener" class="tt-link">malakhamwi.tech</a>
 									</div>
 
 								</div> <!-- /.footer-col-inner -->
@@ -1255,15 +1262,9 @@
 								<div class="footer-col-inner">
 
 									<div class="footer-social">
-										<div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
+										<div class="footer-social-text"><span></span><i ></i></div>
 										<div class="social-buttons">
-											<ul>
-												<li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
-												<li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
-												<li><a href="https://www.youtube.com/" class="magnetic-item" target="_blank" rel="noopener">Yt.</a></li>
-												<li><a href="https://dribbble.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Dr.</a></li>
-												<li><a href="https://www.behance.net/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Be.</a></li>
-											</ul>
+										
 										</div> <!-- /.social-buttons -->
 									</div> <!-- /.footer-social -->
 
@@ -1312,7 +1313,107 @@
 		<!-- Theme master JS -->
 		<script src="assets/js/theme.js"></script>
 
+		<!-- EmailJS CDN -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		
+		<!-- EmailJS Contact Form Script -->
+		<script type="text/javascript">
+			// EmailJS Configuration - You need to replace these with your actual keys
+			const EMAILJS_CONFIG = {
+				PUBLIC_KEY: 'AxA3BpOB4QmBfdirm',        // Your EmailJS public key
+				SERVICE_ID: 'service_029m1p9',        // Your EmailJS service ID  
+				TEMPLATE_ID: 'template_t3iiuyg'       // Your EmailJS template ID
+			};
 
+			// Initialize EmailJS
+			(function() {
+				emailjs.init({
+					publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+				});
+			})();
+
+			// Contact form submission handler
+			document.getElementById('tt-contact-form').addEventListener('submit', function(event) {
+				event.preventDefault();
+				
+				// Get form elements
+				const submitBtn = document.getElementById('submit-btn');
+				const btnText = submitBtn.querySelector('.btn-text');
+				const btnLoading = submitBtn.querySelector('.btn-loading');
+				const formStatus = document.getElementById('form-status');
+				const successMessage = document.getElementById('success-message');
+				const errorMessage = document.getElementById('error-message');
+				
+				// Show loading state
+				btnText.style.display = 'none';
+				btnLoading.style.display = 'inline';
+				submitBtn.disabled = true;
+				
+				// Hide previous messages
+				formStatus.style.display = 'none';
+				successMessage.style.display = 'none';
+				errorMessage.style.display = 'none';
+				
+				// Get form data
+				const formData = {
+					name: document.getElementById('name').value,
+					email: document.getElementById('email').value,
+					subject: document.getElementById('subject').value,
+					option: document.getElementById('option').value,
+					message: document.getElementById('message').value,
+					// Combine subject and option for the email body
+					full_message: `Subject: ${document.getElementById('subject').value}\nOption: ${document.getElementById('option').value}\n\nMessage:\n${document.getElementById('message').value}`,
+					from_name: document.getElementById('name').value,
+					from_email: document.getElementById('email').value,
+					to_name: 'Team Lebanon'
+				};
+				
+				// Send email using EmailJS
+				emailjs.send(
+					EMAILJS_CONFIG.SERVICE_ID,
+					EMAILJS_CONFIG.TEMPLATE_ID,
+					formData
+				).then(
+					function(response) {
+						console.log('SUCCESS!', response.status, response.text);
+						
+						// Show success message
+						formStatus.style.display = 'block';
+						successMessage.style.display = 'block';
+						
+						// Reset form
+						document.getElementById('tt-contact-form').reset();
+						
+						// Reset button state
+						btnText.style.display = 'inline';
+						btnLoading.style.display = 'none';
+						submitBtn.disabled = false;
+						
+						// Auto-hide success message after 5 seconds
+						setTimeout(function() {
+							formStatus.style.display = 'none';
+						}, 5000);
+					},
+					function(error) {
+						console.log('FAILED...', error);
+						
+						// Show error message
+						formStatus.style.display = 'block';
+						errorMessage.style.display = 'block';
+						
+						// Reset button state
+						btnText.style.display = 'inline';
+						btnLoading.style.display = 'none';
+						submitBtn.disabled = false;
+						
+						// Auto-hide error message after 5 seconds
+						setTimeout(function() {
+							formStatus.style.display = 'none';
+						}, 5000);
+					}
+				);
+			});
+		</script>
 
 	</body>
 

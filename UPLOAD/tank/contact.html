@@ -605,18 +605,12 @@
 										-->
 										<form id="tt-contact-form" class="tt-form-minimal anim-fadeinup">
 
-											<!-- Begin hidden required fields (https://github.com/agragregra/uniMail) -->
-											<input type="hidden" name="project_name" value="yourwebsiteaddress.com"> <!-- Change value to your site name -->
-											<input type="hidden" name="admin_email" value="your@email.com"> <!-- Change value to your valid email address (where a message will be sent) -->
-											<input type="hidden" name="form_subject" value="Message from yourwebsiteaddress.com"> <!-- Change value to your own message subject -->
-											<!-- End Hidden Required Fields -->
-
 											<div class="tt-row">
 												<div class="tt-col-md-6">
 
 													<div class="tt-form-group">
 														<label>Name <span class="required">*</span></label>
-														<input class="tt-form-control" type="text" name="Name" placeholder="" required>
+														<input class="tt-form-control" type="text" name="name" id="name" placeholder="" required>
 													</div>
 
 												</div> <!-- /.tt-col -->
@@ -625,7 +619,7 @@
 
 													<div class="tt-form-group">
 														<label>Email address <span class="required">*</span></label>
-														<input class="tt-form-control" type="email" name="Email" placeholder="" required>
+														<input class="tt-form-control" type="email" name="email" id="email" placeholder="" required>
 													</div>
 
 												</div> <!-- /.tt-col -->
@@ -633,12 +627,12 @@
 
 											<div class="tt-form-group">
 												<label>Subject <span class="required">*</span></label>
-												<input class="tt-form-control" type="text" name="Subject" placeholder="" required>
+												<input class="tt-form-control" type="text" name="subject" id="subject" placeholder="" required>
 											</div>
 
 											<div class="tt-form-group">
 												<label>Select an option <span class="required">*</span></label>
-												<select class="tt-form-control" name="option" required>
+												<select class="tt-form-control" name="option" id="option" required>
 													<option value="" disabled selected>Please choose an option</option>
 													<option value="Say Hello">Say hello</option>
 													<option value="New Project">New project</option>
@@ -649,15 +643,28 @@
 
 											<div class="tt-form-group">
 												<label>Message <span class="required">*</span></label>
-												<textarea class="tt-form-control" rows="6" name="Message" placeholder="" required></textarea>
+												<textarea class="tt-form-control" rows="6" name="message" id="message" placeholder="" required></textarea>
 											</div>
 
 											<small class="tt-form-text"><em>Fields marked with an asterisk (*) are required!</em></small>
 
 											<div class="tt-btn tt-btn-light-outline margin-top-40">
-												<button type="submit" data-hover="Send Message">Send Message</button>
+												<button type="submit" id="submit-btn" data-hover="Send Message">
+													<span class="btn-text">Send Message</span>
+													<span class="btn-loading" style="display:none;">Sending...</span>
+												</button>
 											</div>
 										</form>
+										
+										<!-- Form status messages -->
+										<div id="form-status" style="margin-top: 20px; display: none;">
+											<div id="success-message" class="text-success" style="display: none;">
+											  ✅ Thank you! Your message has been sent successfully.
+											</div>
+											<div id="error-message" class="text-danger" style="display: none;">
+											  ❌ Sorry, there was an error sending your message. Please try again.
+											</div>
+										</div>
 										<!-- End form -->
 
 									</div> <!-- /.tt-col -->
@@ -801,7 +808,107 @@
 		<!-- Theme master JS -->
 		<script src="assets/js/theme.js"></script>
 
+		<!-- EmailJS CDN -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+		
+		<!-- EmailJS Contact Form Script -->
+		<script type="text/javascript">
+			// EmailJS Configuration - Using your actual keys
+			const EMAILJS_CONFIG = {
+				PUBLIC_KEY: 'AxA3BpOB4QmBfdirm',        // Your EmailJS public key
+				SERVICE_ID: 'service_029m1p9',           // Your EmailJS service ID  
+				TEMPLATE_ID: 'template_t3iiuyg'          // Your EmailJS template ID
+			};
 
+			// Initialize EmailJS
+			(function() {
+				emailjs.init({
+					publicKey: EMAILJS_CONFIG.PUBLIC_KEY,
+				});
+			})();
+
+			// Contact form submission handler
+			document.getElementById('tt-contact-form').addEventListener('submit', function(event) {
+				event.preventDefault();
+				
+				// Get form elements
+				const submitBtn = document.getElementById('submit-btn');
+				const btnText = submitBtn.querySelector('.btn-text');
+				const btnLoading = submitBtn.querySelector('.btn-loading');
+				const formStatus = document.getElementById('form-status');
+				const successMessage = document.getElementById('success-message');
+				const errorMessage = document.getElementById('error-message');
+				
+				// Show loading state
+				btnText.style.display = 'none';
+				btnLoading.style.display = 'inline';
+				submitBtn.disabled = true;
+				
+				// Hide previous messages
+				formStatus.style.display = 'none';
+				successMessage.style.display = 'none';
+				errorMessage.style.display = 'none';
+				
+				// Get form data
+				const formData = {
+					name: document.getElementById('name').value,
+					email: document.getElementById('email').value,
+					subject: document.getElementById('subject').value,
+					option: document.getElementById('option').value,
+					message: document.getElementById('message').value,
+					// Combine subject and option for the email body
+					full_message: `Subject: ${document.getElementById('subject').value}\nOption: ${document.getElementById('option').value}\n\nMessage:\n${document.getElementById('message').value}`,
+					from_name: document.getElementById('name').value,
+					from_email: document.getElementById('email').value,
+					to_name: 'Team Lebanon'
+				};
+				
+				// Send email using EmailJS
+				emailjs.send(
+					EMAILJS_CONFIG.SERVICE_ID,
+					EMAILJS_CONFIG.TEMPLATE_ID,
+					formData
+				).then(
+					function(response) {
+						console.log('SUCCESS!', response.status, response.text);
+						
+						// Show success message
+						formStatus.style.display = 'block';
+						successMessage.style.display = 'block';
+						
+						// Reset form
+						document.getElementById('tt-contact-form').reset();
+						
+						// Reset button state
+						btnText.style.display = 'inline';
+						btnLoading.style.display = 'none';
+						submitBtn.disabled = false;
+						
+						// Auto-hide success message after 5 seconds
+						setTimeout(function() {
+							formStatus.style.display = 'none';
+						}, 5000);
+					},
+					function(error) {
+						console.log('FAILED...', error);
+						
+						// Show error message
+						formStatus.style.display = 'block';
+						errorMessage.style.display = 'block';
+						
+						// Reset button state
+						btnText.style.display = 'inline';
+						btnLoading.style.display = 'none';
+						submitBtn.disabled = false;
+						
+						// Auto-hide error message after 5 seconds
+						setTimeout(function() {
+							formStatus.style.display = 'none';
+						}, 5000);
+					}
+				);
+			});
+		</script>
 
 	</body>
 
