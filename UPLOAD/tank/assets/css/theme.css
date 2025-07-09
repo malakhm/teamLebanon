@@ -76,6 +76,9 @@
 	.hero-section-title{
 		width: 100% !important;
 	}
+	.founder-video-mobile{
+		width: 100vw !important;
+	}
 }
 
 /* ------------------------------------------------------------- *
